@@ -495,82 +495,82 @@ const RESULTS = {
 const QUESTIONS = [
   // Q1 bonus: hot / sweet / local / tech
   {
-    text:'你要去一個完全沒去過的地方旅行。出發前一天晚上，你在做什麼？',
+    text:'出發前一天晚上，要規劃嘉義美食一日遊，你怎麼做？',
     options:[
-      {text:'什麼都沒準備，反正到了再說', travel:'E', culture:'S', bonus:'hot'},
-      {text:'在 IG 存了幾個看起來很好看的地方', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'行程表已經排好了，時間精確到半小時', travel:'P', culture:'H', bonus:'local'},
-      {text:'在查這個地方的歷史和文化背景，想先搞懂再去', travel:'P', culture:'H', bonus:'tech'},
+      {text:'什麼都沒準備，到了再說', travel:'E', culture:'S', bonus:'hot'},
+      {text:'在 IG 存幾個看起來好拍的地方', travel:'E', culture:'S', bonus:'sweet'},
+      {text:'行程表排好，三餐全訂位', travel:'P', culture:'H', bonus:'local'},
+      {text:'查完嘉義美食名單，到現場憑感覺', travel:'P', culture:'H', bonus:'tech'},
     ]
   },
-  // Q2 bonus: surp / old / wood / ice
+  // Q2 bonus: hot / sweet / tech / local
   {
-    text:'你在嘉義一間小店買東西，老闆突然問你「第一次來嘉義嗎？」你怎麼回應？',
+    text:'嘉義火雞肉飯兩家都在排隊，一家老字號、一家評價極高的新店。你？',
     options:[
-      {text:'對啊，你覺得我應該去哪裡？隨便推薦，我現在就去', travel:'J', culture:'M', bonus:'surp'},
-      {text:'對，然後開始問他在這裡開店幾年了、這一帶以前什麼樣子', travel:'J', culture:'H', bonus:'old'},
-      {text:'對，然後問他這裡有沒有什麼可以動手體驗的地方', travel:'J', culture:'S', bonus:'wood'},
-      {text:'對，然後禮貌地笑笑，繼續自己的節奏', travel:'P', culture:'H', bonus:'ice'},
+      {text:'不排隊，直接找下一家', travel:'E', culture:'S', bonus:'hot'},
+      {text:'看外觀，選裝潢比較好看的', travel:'E', culture:'S', bonus:'sweet'},
+      {text:'查一下評價，搞清楚差在哪再選', travel:'P', culture:'H', bonus:'tech'},
+      {text:'選老字號，正宗的比網紅的值得', travel:'P', culture:'H', bonus:'local'},
     ]
   },
-  // Q3 bonus: hot / sweet / tech / local
+  // Q3 bonus: old / surp / wood / ice
   {
-    text:'你在嘉義火雞肉飯店門口，看到兩家排隊，一家是老字號、一家是網路新店。你？',
+    text:'火雞肉飯端上來，你怎麼吃？',
     options:[
-      {text:'問旁邊的人哪家好，當場決定', travel:'E', culture:'S', bonus:'hot'},
-      {text:'看一下兩家的外觀，選裝潢比較好看的', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'查一下評價和推薦，搞清楚差在哪再選', travel:'P', culture:'H', bonus:'tech'},
-      {text:'選老字號，正宗的比網紅的更值得', travel:'P', culture:'H', bonus:'local'},
+      {text:'問老闆「你們這裡怎麼吃比較好？」然後照他說的做', travel:'J', culture:'H', bonus:'old'},
+      {text:'不拌，加個沒試過的配料，看看什麼味道', travel:'J', culture:'M', bonus:'surp'},
+      {text:'拌，把每樣配料一個一個慢慢加，感受不同', travel:'J', culture:'S', bonus:'wood'},
+      {text:'先不拌原味吃幾口，再慢慢拌，不急', travel:'P', culture:'H', bonus:'ice'},
     ]
   },
-  // Q4 bonus: wood / old / surp / ice
+  // Q4 bonus: surp / old / wood / ice
   {
-    text:'你在嘉義街上看到一間工藝工坊，門開著，師傅在裡面低頭工作。你？',
+    text:'想去的老屋咖啡沒開，這時路人突然搭話，你會？',
     options:[
-      {text:'走進去，直接問師傅可不可以讓我試試看', travel:'J', culture:'S', bonus:'wood'},
-      {text:'走進去，在旁邊站著看，等師傅有空再問他做這個多久了', travel:'J', culture:'H', bonus:'old'},
-      {text:'在門口看一下，覺得有點意思，拍張照記一下，繼續往前走', travel:'J', culture:'M', bonus:'surp'},
-      {text:'放慢腳步看了一會兒，沒進去，不想打擾他', travel:'P', culture:'H', bonus:'ice'},
+      {text:'婉拒，自己找下一個目的地', travel:'J', culture:'M', bonus:'surp'},
+      {text:'聊起來，問他這家老屋開幾年了、這一帶以前什麼樣子', travel:'J', culture:'H', bonus:'old'},
+      {text:'問他附近有沒有可以動手體驗的地方', travel:'J', culture:'S', bonus:'wood'},
+      {text:'婉拒，繼續照自己的節奏慢慢走', travel:'P', culture:'H', bonus:'ice'},
     ]
   },
   // Q5 bonus: sweet / tech / hot / local
   {
-    text:'你在嘉義一個老屋咖啡廳，朋友說「你來點」。你怎麼選？',
+    text:'嘉義串燒店，你看到招牌特串，你點嗎？',
     options:[
-      {text:'點顏色最漂亮的那個，拍起來一定好看', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'問店員這裡哪個最有特色，聽完再決定', travel:'P', culture:'H', bonus:'tech'},
-      {text:'點菜單上最奇怪的名字，想知道是什麼味道', travel:'E', culture:'S', bonus:'hot'},
-      {text:'點招牌，最能代表這家店的就是招牌', travel:'P', culture:'H', bonus:'local'},
+      {text:'看好不好看，再決定', travel:'E', culture:'S', bonus:'sweet'},
+      {text:'問老闆背後的故事，聽完再決定', travel:'P', culture:'H', bonus:'tech'},
+      {text:'什麼都點，招牌也不放過', travel:'E', culture:'S', bonus:'hot'},
+      {text:'招牌就必點，不用多想', travel:'P', culture:'H', bonus:'local'},
     ]
   },
-  // Q6 bonus: old / ice / wood / surp
+  // Q6 bonus: wood / old / surp / ice
   {
-    text:'嘉義旅行中，你最享受哪一種時刻？',
+    text:'串燒店等待中，什麼最吸引你？',
     options:[
-      {text:'跟一個當地人聊起來，聊到停不下來', travel:'J', culture:'H', bonus:'old'},
-      {text:'找到一個安靜的地方，一個人坐很久', travel:'P', culture:'H', bonus:'ice'},
-      {text:'動手做了一個東西，帶著它回家', travel:'J', culture:'S', bonus:'wood'},
-      {text:'走進一個沒有預期會進去的地方，然後發現很有趣', travel:'J', culture:'M', bonus:'surp'},
+      {text:'牆上的嘉義活動海報', travel:'J', culture:'S', bonus:'wood'},
+      {text:'找機會問老闆這家店做多久了', travel:'J', culture:'H', bonus:'old'},
+      {text:'離開位子，拍個照', travel:'J', culture:'M', bonus:'surp'},
+      {text:'坐著慢慢觀察四周的建築和空間', travel:'P', culture:'H', bonus:'ice'},
     ]
   },
   // Q7 bonus: sweet / tech / old / local
   {
-    text:'旅行結束回家，朋友問你「嘉義怎麼樣」。你怎麼回答？',
+    text:'旅行結束，朋友問你「嘉義怎麼樣」，你怎麼回？',
     options:[
-      {text:'傳一張照片過去，說「你看這個光，美死了」', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'說「我研究了一下花磚的製作方式，真的很複雜」', travel:'P', culture:'H', bonus:'tech'},
-      {text:'說「我跟一個賣魚丸的阿伯聊了很久，他說以前這條街⋯⋯」', travel:'J', culture:'H', bonus:'old'},
-      {text:'把行程表傳給他，說「你要去的話照這個走就對了」', travel:'P', culture:'H', bonus:'local'},
+      {text:'傳張照片說「你看這個光，美死了」', travel:'E', culture:'S', bonus:'sweet'},
+      {text:'說「我研究了花磚的製作方式，真的很複雜」', travel:'P', culture:'H', bonus:'tech'},
+      {text:'說「我跟一個賣魚丸的阿伯聊很久，他說以前這條街⋯⋯」', travel:'J', culture:'H', bonus:'old'},
+      {text:'把行程表傳給他，說「照這個走就對了」', travel:'P', culture:'H', bonus:'local'},
     ]
   },
   // Q8 bonus: hot / surp / wood / ice
   {
-    text:'嘉義最後半天，你會怎麼用？',
+    text:'嘉義最後半天，你怎麼用？',
     options:[
-      {text:'去補昨天路過但沒進去的那家，不吃到不走', travel:'E', culture:'S', bonus:'hot'},
-      {text:'去一條這趟完全沒走過的街，看能遇到什麼', travel:'J', culture:'M', bonus:'surp'},
-      {text:'去之前預約好的體驗，把那個東西做完帶回去', travel:'J', culture:'S', bonus:'wood'},
-      {text:'不排新的行程，就在熟悉的地方慢慢走，讓這趟旅行慢慢收尾', travel:'P', culture:'H', bonus:'ice'},
+      {text:'補昨天沒進去的那家，不吃到不走', travel:'E', culture:'S', bonus:'hot'},
+      {text:'走一條這趟沒走過的街，看能遇到什麼', travel:'J', culture:'M', bonus:'surp'},
+      {text:'去預約好的體驗，把東西做完帶回去', travel:'J', culture:'S', bonus:'wood'},
+      {text:'不排新行程，在熟悉的地方慢慢走，讓旅行慢慢收尾', travel:'P', culture:'H', bonus:'ice'},
     ]
   }
 ];
