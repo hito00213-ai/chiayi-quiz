@@ -6,112 +6,69 @@
 <title>你是哪一種嘉義串？｜文化＋1串！</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
-:root {
-  --black: #111;
-  --white: #FAFAFA;
-  --y: #F5E642;
-  --r: #FF4A1C;
-  --p: #FF8FCB;
-  --b: #00AEEF;
-  --g: #2ECC40;
-  --br: #C8902A;
-  --s: #A8A8B3;
-  --yw: #F7C948;
+:root{
+  --black:#111;--white:#FAFAFA;--y:#F5E642;
+  --c1:#FF4A1C;--c2:#E8732A;--c3:#C8902A;--c4:#6B4C2A;
+  --c5:#7B5EA7;--c6:#3A7D44;--c7:#E91E8C;--c8:#B5451B;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--black);color:var(--white);font-family:'Noto Serif TC',serif;min-height:100vh;overflow-x:hidden;}
-
-/* SPLASH */
 #splash{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden;}
 .bg-strips{position:absolute;inset:0;display:flex;}
-.bg-strip{flex:1;opacity:0.07;}
-.s1{background:var(--r);}.s2{background:var(--p);}.s3{background:var(--b);}.s4{background:var(--g);}
-.s5{background:var(--br);}.s6{background:var(--s);}.s7{background:var(--yw);}.s8{background:var(--y);}
+.bg-strip{flex:1;opacity:0.06;}
+.s1{background:var(--c1);}.s2{background:var(--c2);}.s3{background:var(--c3);}.s4{background:var(--c4);}
+.s5{background:var(--c5);}.s6{background:var(--c6);}.s7{background:var(--c7);}.s8{background:var(--c8);}
 .splash-badge{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.3em;color:var(--y);border:1px solid var(--y);padding:.3rem 1rem;margin-bottom:2rem;text-transform:uppercase;animation:fadeUp .6s ease both;}
-.splash-title{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;line-height:1;text-align:center;animation:fadeUp .6s .1s ease both;}
+.splash-title{font-size:clamp(2.4rem,7vw,5rem);font-weight:900;line-height:1;text-align:center;animation:fadeUp .6s .1s ease both;}
 .splash-title .accent{color:var(--y);display:block;}
 .splash-sub{margin-top:1.5rem;font-size:1rem;color:#aaa;text-align:center;line-height:1.8;max-width:440px;animation:fadeUp .6s .2s ease both;}
-.splash-types{display:flex;gap:.6rem;margin-top:2rem;flex-wrap:wrap;justify-content:center;animation:fadeUp .6s .3s ease both;}
-.type-pill{padding:.35rem 1rem;font-size:.78rem;font-weight:700;letter-spacing:.04em;}
-.tp-r{background:var(--r);color:#fff;}.tp-p{background:var(--p);color:#111;}
-.tp-b{background:var(--b);color:#111;}.tp-g{background:var(--g);color:#111;}
-.tp-br{background:var(--br);color:#fff;}.tp-s{background:var(--s);color:#111;}
-.tp-yw{background:var(--yw);color:#111;}.tp-y{background:var(--y);color:#111;}
-.start-btn{margin-top:3rem;background:var(--white);color:var(--black);border:none;padding:1.1rem 3.5rem;font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;cursor:pointer;letter-spacing:.1em;transition:background .2s,transform .15s;animation:fadeUp .6s .4s ease both;}
+.start-btn{margin-top:3rem;background:var(--white);color:var(--black);border:none;padding:1.1rem 3.5rem;font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:900;cursor:pointer;letter-spacing:.1em;transition:background .2s,transform .15s;animation:fadeUp .6s .3s ease both;}
 .start-btn:hover{background:var(--y);transform:scale(1.04);}
-
-/* QUIZ */
 #quiz{display:none;min-height:100vh;padding:2rem 1rem 4rem;max-width:680px;margin:0 auto;}
 .progress-bar-wrap{height:4px;background:#333;margin-bottom:.6rem;}
 .progress-bar-fill{height:100%;background:var(--y);transition:width .4s ease;}
 .progress-label{font-family:'Space Mono',monospace;font-size:.7rem;color:#666;margin-bottom:2.5rem;letter-spacing:.15em;}
 .question-block{animation:fadeUp .4s ease both;}
 .q-number{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--y);letter-spacing:.3em;margin-bottom:1rem;}
-.q-text{font-size:clamp(1.15rem,3vw,1.5rem);font-weight:700;line-height:1.5;margin-bottom:2rem;}
+.q-text{font-size:clamp(1.1rem,3vw,1.45rem);font-weight:700;line-height:1.5;margin-bottom:2rem;}
 .options{display:flex;flex-direction:column;gap:.75rem;}
 .option-btn{background:transparent;border:1px solid #333;color:var(--white);padding:1rem 1.4rem;text-align:left;font-family:'Noto Serif TC',serif;font-size:.95rem;line-height:1.5;cursor:pointer;transition:border-color .2s,background .2s,transform .1s;position:relative;}
 .option-btn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .2s;}
 .option-btn:hover{border-color:var(--y);background:rgba(245,230,66,.05);transform:translateX(4px);}
 .option-btn:hover::before{background:var(--y);}
-.option-btn.selected{border-color:var(--y);background:rgba(245,230,66,.12);}
-.option-btn.selected::before{background:var(--y);}
-
-/* RESULT */
+.back-q-btn{background:transparent;border:none;color:#555;padding:.6rem 0 0;font-family:'Noto Serif TC',serif;font-size:.82rem;cursor:pointer;transition:color .2s;letter-spacing:.05em;display:block;margin-top:.5rem;}
+.back-q-btn:hover{color:#aaa;}
 #result{display:none;min-height:100vh;}
 .result-hero{padding:3.5rem 2rem 2.5rem;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;}
-.rh-r{background:var(--r);color:#fff;}.rh-p{background:var(--p);color:#111;}
-.rh-b{background:var(--b);color:#111;}.rh-g{background:var(--g);color:#111;}
-.rh-br{background:var(--br);color:#fff;}.rh-s{background:var(--s);color:#111;}
-.rh-yw{background:var(--yw);color:#111;}.rh-y{background:var(--y);color:#111;}
-.result-tag{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.3em;padding:.3rem .8rem;border:1.5px solid currentColor;margin-bottom:1.2rem;opacity:.7;animation:fadeUp .5s ease both;}
-.char-wrap{width:160px;height:160px;margin-bottom:1.2rem;animation:fadeUp .5s .05s ease both,floatAnim 3s ease-in-out infinite;}
+.rh-1{background:var(--c1);color:#fff;}.rh-2{background:var(--c2);color:#fff;}
+.rh-3{background:var(--c3);color:#fff;}.rh-4{background:var(--c4);color:#fff;}
+.rh-5{background:var(--c5);color:#fff;}.rh-6{background:var(--c6);color:#fff;}
+.rh-7{background:var(--c7);color:#fff;}.rh-8{background:var(--c8);color:#fff;}
+.result-tag{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.3em;padding:.3rem .8rem;border:1.5px solid rgba(255,255,255,.5);margin-bottom:1.2rem;opacity:.85;animation:fadeUp .5s ease both;}
+.result-icon{font-size:5rem;margin-bottom:1rem;animation:fadeUp .5s .05s ease both,floatAnim 3s ease-in-out infinite;}
 @keyframes floatAnim{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-.rarity-badge{font-family:'Space Mono',monospace;font-size:.65rem;padding:.25rem .8rem;background:rgba(0,0,0,.2);border-radius:99px;margin-bottom:1rem;letter-spacing:.1em;animation:fadeUp .5s .08s ease both;}
-.result-type-name{font-size:clamp(2.8rem,9vw,5.5rem);font-weight:900;line-height:.95;animation:fadeUp .5s .1s ease both;}
-.result-subtitle{font-size:.95rem;margin-top:.8rem;opacity:.75;animation:fadeUp .5s .2s ease both;}
+.rarity-badge{font-family:'Space Mono',monospace;font-size:.65rem;padding:.25rem .8rem;background:rgba(0,0,0,.2);border-radius:99px;margin-bottom:.8rem;letter-spacing:.1em;animation:fadeUp .5s .08s ease both;}
+.result-type-name{font-size:clamp(1.6rem,4.5vw,2.8rem);font-weight:900;line-height:1.1;animation:fadeUp .5s .1s ease both;max-width:500px;}
+.result-subtitle{font-size:.9rem;margin-top:.8rem;opacity:.75;animation:fadeUp .5s .2s ease both;}
 .result-body{background:var(--black);color:var(--white);padding:2.5rem 1.5rem 4rem;max-width:680px;margin:0 auto;}
-.result-desc{font-size:1rem;line-height:1.9;color:#ddd;margin-bottom:2rem;animation:fadeUp .5s .3s ease both;}
-.result-ip-desc{font-size:.95rem;line-height:1.8;color:#ccc;margin-bottom:2rem;padding:1rem 1.2rem;border-left:3px solid currentColor;background:rgba(255,255,255,.04);animation:fadeUp .5s .31s ease both;font-style:italic;}
+.result-desc{font-size:1rem;line-height:1.9;color:#ddd;margin-bottom:1.5rem;animation:fadeUp .5s .3s ease both;}
 .result-other-desc{font-size:.9rem;line-height:1.8;color:#aaa;margin-bottom:2rem;border-left:2px solid #333;padding-left:1rem;animation:fadeUp .5s .32s ease both;}
-
-.section-label{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.3em;color:#666;margin-bottom:.8rem;}
+.section-label{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.3em;color:#666;margin-bottom:.8rem;margin-top:2rem;}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem;animation:fadeUp .5s .38s ease both;}
+.flag-tag{font-size:.78rem;color:#888;border:1px solid #2a2a2a;padding:.3rem .7rem;}
 .result-spots{display:flex;flex-direction:column;gap:0;margin-bottom:2rem;animation:fadeUp .5s .35s ease both;}
-.spot-row{display:flex;align-items:flex-start;gap:.8rem;padding:.6rem 0;border-bottom:1px solid #1e1e1e;}
+.spot-row{display:flex;align-items:flex-start;gap:.8rem;padding:.75rem 0;border-bottom:1px solid #1e1e1e;}
 .spot-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:.45rem;}
 .spot-info{flex:1;}
 .spot-name{font-size:.9rem;color:#ddd;font-weight:700;}
 .spot-note{font-size:.78rem;color:#666;margin-top:.15rem;}
-
-.tags-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem;animation:fadeUp .5s .38s ease both;}
-.flag-tag{font-size:.78rem;color:#888;border:1px solid #2a2a2a;padding:.3rem .7rem;}
-
 .partner-wrap{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem;animation:fadeUp .5s .4s ease both;}
 .partner-card{border:1px solid #1e1e1e;padding:.9rem 1rem;}
 .partner-label{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:#555;margin-bottom:.5rem;}
-.partner-names{font-size:.88rem;color:#ccc;line-height:1.6;}
-
+.partner-names{font-size:.85rem;color:#ccc;line-height:1.6;}
 .quote-block{border-left:3px solid var(--y);padding:.8rem 1.2rem;margin-bottom:2rem;font-size:.95rem;color:#ccc;font-style:italic;line-height:1.7;animation:fadeUp .5s .42s ease both;}
-
-/* CTA */
-.cta-section{margin-bottom:2.5rem;animation:fadeUp .5s .45s ease both;}
-.cta-buttons{display:flex;flex-direction:column;gap:.75rem;}
-.cta-btn{display:flex;align-items:center;gap:1rem;padding:1rem 1.4rem;border:1px solid #333;color:var(--white);text-decoration:none;font-family:'Noto Serif TC',serif;font-size:.95rem;transition:border-color .2s,background .2s,transform .1s;position:relative;}
-.cta-btn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;}
-.cta-btn.line-btn::before{background:#06C755;}
-.cta-btn.ig-btn::before{background:#E1306C;}
-.cta-btn.map-btn::before{background:var(--b);}
-.cta-btn:hover{background:rgba(255,255,255,.05);transform:translateX(4px);border-color:#555;}
-.cta-icon{font-size:1.3rem;flex-shrink:0;}
-.cta-text{flex:1;}
-.cta-text strong{display:block;font-size:.95rem;margin-bottom:.15rem;}
-.cta-text span{font-size:.78rem;color:#888;}
-.cta-arrow{color:#555;font-size:.9rem;}
-.retry-btn{background:transparent;border:1px solid #444;color:#888;padding:.9rem 2.5rem;font-family:'Noto Serif TC',serif;font-size:.9rem;cursor:pointer;transition:border-color .2s,color .2s;letter-spacing:.1em;animation:fadeUp .5s .55s ease both;}
+.retry-btn{background:transparent;border:1px solid #444;color:#888;padding:.9rem 2.5rem;font-family:'Noto Serif TC',serif;font-size:.9rem;cursor:pointer;transition:border-color .2s,color .2s;letter-spacing:.1em;display:block;margin:2rem auto 0;}
 .retry-btn:hover{border-color:var(--white);color:var(--white);}
-.back-q-btn{background:transparent;border:none;color:#555;padding:.6rem 0 0;font-family:'Noto Serif TC',serif;font-size:.82rem;cursor:pointer;transition:color .2s;letter-spacing:.05em;display:block;margin-top:.5rem;}
-.back-q-btn:hover{color:#aaa;}
-
-/* ADMIN */
 #admin{display:none;min-height:100vh;padding:3rem 1.5rem;max-width:800px;margin:0 auto;}
 .admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;}
 .admin-title{font-size:1.4rem;font-weight:900;}
@@ -123,17 +80,13 @@ body{background:var(--black);color:var(--white);font-family:'Noto Serif TC',seri
 .stat-total-label{color:#666;font-size:.85rem;}
 .stats-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:3rem;}
 .stat-row{display:grid;grid-template-columns:1fr 60px 80px;align-items:center;gap:1rem;padding:.9rem 1rem;border:1px solid #1e1e1e;}
-.stat-name{font-size:.92rem;font-weight:700;display:flex;align-items:center;gap:.6rem;}
-.stat-bar-col{position:relative;height:4px;background:#222;}
-.stat-bar-inner{height:100%;transition:width .8s ease;}
+.stat-name{font-size:.88rem;font-weight:700;display:flex;align-items:center;gap:.6rem;}
 .stat-num{font-family:'Space Mono',monospace;font-size:.8rem;color:#888;text-align:right;}
 .stat-pct{font-family:'Space Mono',monospace;font-size:.75rem;color:#555;}
 .admin-loading{color:#666;font-size:.9rem;text-align:center;padding:3rem;}
 .admin-error{color:#ff6b6b;font-size:.85rem;text-align:center;padding:2rem;border:1px solid #ff6b6b33;}
 .back-btn{background:transparent;border:1px solid #333;color:#888;padding:.8rem 1.8rem;font-family:'Noto Serif TC',serif;font-size:.85rem;cursor:pointer;transition:border-color .2s,color .2s;}
 .back-btn:hover{border-color:var(--white);color:var(--white);}
-
-/* PW MODAL */
 .pw-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;}
 .pw-overlay.active{display:flex;}
 .pw-box{background:#1a1a1a;border:1px solid #333;padding:2.5rem;width:90%;max-width:360px;text-align:center;}
@@ -142,19 +95,13 @@ body{background:var(--black);color:var(--white);font-family:'Noto Serif TC',seri
 .pw-input{width:100%;background:#111;border:1px solid #333;color:var(--white);padding:.8rem 1rem;font-size:1rem;text-align:center;letter-spacing:.2em;margin-bottom:1rem;font-family:'Space Mono',monospace;}
 .pw-input:focus{outline:none;border-color:var(--y);}
 .pw-btn{width:100%;background:var(--y);color:var(--black);border:none;padding:.9rem;font-weight:900;font-size:1rem;cursor:pointer;font-family:'Noto Serif TC',serif;}
-.pw-error{color:var(--r);font-size:.8rem;margin-top:.75rem;display:none;}
-
+.pw-error{color:#FF4A1C;font-size:.8rem;margin-top:.75rem;display:none;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-@media(max-width:480px){
-  .splash-title{font-size:2.4rem;}
-  .result-type-name{font-size:3rem;}
-  .partner-wrap{grid-template-columns:1fr;}
-}
+@media(max-width:480px){.splash-title{font-size:2.2rem;}.result-type-name{font-size:1.6rem;}.partner-wrap{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
 <section id="splash">
   <div class="bg-strips">
     <div class="bg-strip s1"></div><div class="bg-strip s2"></div>
@@ -164,22 +111,20 @@ body{background:var(--black);color:var(--white);font-family:'Noto Serif TC',seri
   </div>
   <div class="splash-badge">文化＋1串！心理測驗</div>
   <h1 class="splash-title">你是哪一種<span class="accent">嘉義串？</span></h1>
-  <p class="splash-sub">8種嘉義串在等你。<br>8道題，找到你最對味的那一支。</p>
+  <p class="splash-sub">8種嘉義串在等你。<br>9道題，找到你最對味的那一支。</p>
   <button class="start-btn" onclick="startQuiz()">開始串！→</button>
 </section>
 
-<!-- QUIZ -->
 <section id="quiz">
   <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
-  <div class="progress-label" id="progressLabel">Q 1 / 6</div>
+  <div class="progress-label" id="progressLabel">Q 1 / 9</div>
   <div class="question-block" id="questionBlock"></div>
 </section>
 
-<!-- RESULT -->
 <section id="result">
   <div class="result-hero" id="resultHero">
     <div class="result-tag">你的嘉義串類型</div>
-    <div class="char-wrap" id="charWrap"></div>
+    <div class="result-icon" id="resultIcon"></div>
     <div class="rarity-badge" id="rarityBadge"></div>
     <div class="result-type-name" id="resultTypeName"></div>
     <div class="result-subtitle" id="resultSubtitle"></div>
@@ -189,19 +134,15 @@ body{background:var(--black);color:var(--white);font-family:'Noto Serif TC',seri
     <p class="result-other-desc" id="resultOtherDesc"></p>
     <div class="section-label">FLAG 標籤</div>
     <div class="tags-wrap" id="resultTags"></div>
-    <div class="section-label">推薦嘉義文化站點</div>
+    <div class="section-label">推薦站點</div>
     <div class="result-spots" id="resultSpots"></div>
+    <div class="section-label">旅伴配對</div>
     <div class="partner-wrap" id="partnerWrap"></div>
     <div class="quote-block" id="resultQuote"></div>
-    <div class="cta-section">
-      <div class="section-label">繼續探索嘉義文化</div>
-      <div class="cta-buttons" id="ctaButtons"></div>
-    </div>
     <button class="retry-btn" onclick="resetQuiz()">← 重新測驗</button>
   </div>
 </section>
 
-<!-- ADMIN -->
 <section id="admin">
   <div class="admin-header">
     <div>
@@ -215,561 +156,321 @@ body{background:var(--black);color:var(--white);font-family:'Noto Serif TC',seri
   <button class="back-btn" onclick="goHome()">← 返回測驗</button>
 </section>
 
-<!-- PW MODAL -->
 <div class="pw-overlay" id="pwOverlay">
   <div class="pw-box">
-    <div class="pw-title">後台統計</div>
-    <div class="pw-sub">請輸入管理密碼</div>
-    <input class="pw-input" type="password" id="pwInput" placeholder="••••••" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-title">後台數據</div>
+    <div class="pw-sub">請輸入密碼</div>
+    <input class="pw-input" id="pwInput" type="password" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPw()">
     <button class="pw-btn" onclick="checkPw()">進入</button>
-    <div class="pw-error" id="pwError">密碼錯誤，請再試一次</div>
+    <div class="pw-error" id="pwError">密碼錯誤</div>
   </div>
 </div>
 
 <script>
-// ══════════════════════════════════════
-//  ★ 設定區
-// ══════════════════════════════════════
 const CONFIG = {
   APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwTK5L5AW6emVwVA-LJkg4B5kJQ5sTzinEs7v7mdai46jaPP1i19ArWIV4VQB5ul2USOg/exec',
-  ADMIN_PASSWORD: 'ccc2026',
-  MAP_LINKS: {
-    hot:   'https://maps.app.goo.gl/【火辣串地圖連結】',
-    surp:  'https://maps.app.goo.gl/【卡恰蹦蹦串地圖連結】',
-    sweet: 'https://maps.app.goo.gl/【甜甜顏值串地圖連結】',
-    ice:   'https://maps.app.goo.gl/【冰冰棒棒串地圖連結】',
-    wood:  'https://maps.app.goo.gl/【有木有串地圖連結】',
-    old:   'https://maps.app.goo.gl/【古仔欸串地圖連結】',
-    tech:  'https://maps.app.goo.gl/【科技刻記串地圖連結】',
-    local: 'https://maps.app.goo.gl/【嘉義本命串地圖連結】',
-  }
+  ADMIN_PASSWORD: 'ccc2026'
 };
 
 // ══════════════════════════════════════
-//  SVG 角色
-// ══════════════════════════════════════
-const CHARS = {
-  hot: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#FF4A1C" opacity="0.1"/>
-    <circle cx="80" cy="46" r="18" fill="#FF4A1C"/>
-    <rect x="63" y="63" width="34" height="38" rx="4" fill="#FF4A1C"/>
-    <line x1="80" y1="101" x2="60" y2="135" stroke="#FF4A1C" stroke-width="8" stroke-linecap="round"/>
-    <line x1="80" y1="101" x2="100" y2="135" stroke="#FF4A1C" stroke-width="8" stroke-linecap="round"/>
-    <line x1="63" y1="76" x2="42" y2="90" stroke="#FF4A1C" stroke-width="7" stroke-linecap="round"/>
-    <line x1="97" y1="76" x2="118" y2="90" stroke="#FF4A1C" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="74" cy="44" r="2.5" fill="#111"/>
-    <circle cx="86" cy="44" r="2.5" fill="#111"/>
-    <path d="M74 53 Q80 58 86 53" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <text x="100" y="35" font-size="18" opacity="0.8">🌶</text>
-    <line x1="14" y1="100" x2="34" y2="100" stroke="#FF4A1C" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-    <line x1="10" y1="112" x2="30" y2="112" stroke="#FF4A1C" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
-  </svg>`,
-  surp: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#FF8FCB" opacity="0.1"/>
-    <circle cx="50" cy="90" r="22" fill="#FF8FCB" opacity="0.9"/>
-    <circle cx="80" cy="78" r="22" fill="#FF8FCB"/>
-    <circle cx="110" cy="90" r="22" fill="#FF8FCB" opacity="0.9"/>
-    <text x="40" y="96" font-size="14" text-anchor="middle" fill="#111">?</text>
-    <text x="80" y="84" font-size="16" text-anchor="middle" fill="#111">!</text>
-    <text x="110" y="96" font-size="14" text-anchor="middle" fill="#111">?</text>
-    <circle cx="50" cy="70" r="6" fill="#fff" opacity="0.5"/>
-    <circle cx="80" cy="58" r="6" fill="#fff" opacity="0.5"/>
-    <circle cx="110" cy="70" r="6" fill="#fff" opacity="0.5"/>
-    <line x1="50" y1="112" x2="80" y2="100" stroke="#FF8FCB" stroke-width="3" opacity="0.5"/>
-    <line x1="110" y1="112" x2="80" y2="100" stroke="#FF8FCB" stroke-width="3" opacity="0.5"/>
-    <text x="80" y="148" font-size="10" text-anchor="middle" fill="#FF8FCB" opacity="0.5">✦ ✦ ✦</text>
-  </svg>`,
-  sweet: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#ffb3d9" opacity="0.1"/>
-    <circle cx="50" cy="88" r="20" fill="#ffb3d9"/>
-    <circle cx="80" cy="76" r="22" fill="#FF8FCB"/>
-    <circle cx="110" cy="88" r="18" fill="#f7c5e0"/>
-    <circle cx="80" cy="54" r="8" fill="#FF8FCB" opacity="0.6"/>
-    <circle cx="50" cy="68" r="5" fill="#fff" opacity="0.4"/>
-    <circle cx="80" cy="56" r="4" fill="#fff" opacity="0.4"/>
-    <circle cx="110" cy="70" r="4" fill="#fff" opacity="0.4"/>
-    <circle cx="74" cy="76" r="2" fill="#111"/>
-    <circle cx="86" cy="76" r="2" fill="#111"/>
-    <path d="M74 85 Q80 90 86 85" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <text x="18" y="50" font-size="12" fill="#FF8FCB" opacity="0.6">✦</text>
-    <text x="130" y="45" font-size="10" fill="#FF8FCB" opacity="0.5">✦</text>
-    <text x="80" y="150" font-size="10" text-anchor="middle" fill="#FF8FCB" opacity="0.4">♡ ♡ ♡</text>
-  </svg>`,
-  ice: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#00AEEF" opacity="0.08"/>
-    <rect x="52" y="30" width="24" height="60" rx="12" fill="#00AEEF"/>
-    <rect x="82" y="40" width="22" height="55" rx="11" fill="#7dd8f7"/>
-    <rect x="110" y="35" width="20" height="58" rx="10" fill="#00AEEF" opacity="0.7"/>
-    <line x1="64" y1="90" x2="64" y2="135" stroke="#C8902A" stroke-width="3" stroke-linecap="round"/>
-    <line x1="93" y1="95" x2="93" y2="138" stroke="#C8902A" stroke-width="3" stroke-linecap="round"/>
-    <line x1="120" y1="93" x2="120" y2="136" stroke="#C8902A" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="64" cy="48" r="3" fill="#fff" opacity="0.5"/>
-    <circle cx="93" cy="55" r="2.5" fill="#fff" opacity="0.5"/>
-    <circle cx="120" cy="51" r="2.5" fill="#fff" opacity="0.4"/>
-    <text x="20" y="75" font-size="10" fill="#00AEEF" opacity="0.4">❄</text>
-    <text x="130" y="65" font-size="10" fill="#00AEEF" opacity="0.4">❄</text>
-  </svg>`,
-  wood: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#C8902A" opacity="0.1"/>
-    <rect x="52" y="35" width="22" height="70" rx="4" fill="#C8902A"/>
-    <rect x="80" y="42" width="20" height="65" rx="3" fill="#a06820" opacity="0.9"/>
-    <rect x="106" y="38" width="18" height="68" rx="3" fill="#C8902A" opacity="0.8"/>
-    <line x1="52" y1="55" x2="74" y2="55" stroke="#8B5E1A" stroke-width="1.5" opacity="0.5"/>
-    <line x1="52" y1="70" x2="74" y2="70" stroke="#8B5E1A" stroke-width="1" opacity="0.4"/>
-    <line x1="80" y1="62" x2="100" y2="62" stroke="#7a5015" stroke-width="1.5" opacity="0.5"/>
-    <line x1="106" y1="58" x2="124" y2="58" stroke="#8B5E1A" stroke-width="1" opacity="0.4"/>
-    <line x1="60" y1="105" x2="60" y2="145" stroke="#8B5E1A" stroke-width="3" stroke-linecap="round"/>
-    <line x1="90" y1="107" x2="90" y2="148" stroke="#8B5E1A" stroke-width="3" stroke-linecap="round"/>
-    <line x1="115" y1="106" x2="115" y2="146" stroke="#8B5E1A" stroke-width="3" stroke-linecap="round"/>
-  </svg>`,
-  old: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#A8A8B3" opacity="0.1"/>
-    <circle cx="52" cy="88" r="20" fill="#A8A8B3"/>
-    <circle cx="80" cy="80" r="22" fill="#888"/>
-    <circle cx="108" cy="88" r="20" fill="#A8A8B3" opacity="0.8"/>
-    <path d="M52 80 Q55 72 62 75 Q58 82 52 80Z" fill="#6a6a75" opacity="0.6"/>
-    <path d="M80 72 Q83 64 90 67 Q86 74 80 72Z" fill="#666" opacity="0.6"/>
-    <path d="M108 80 Q111 72 118 75 Q114 82 108 80Z" fill="#6a6a75" opacity="0.5"/>
-    <line x1="52" y1="108" x2="80" y2="102" stroke="#A8A8B3" stroke-width="3" opacity="0.4"/>
-    <line x1="108" y1="108" x2="80" y2="102" stroke="#A8A8B3" stroke-width="3" opacity="0.4"/>
-    <line x1="60" y1="135" x2="80" y2="125" stroke="#888" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-    <line x1="100" y1="135" x2="80" y2="125" stroke="#888" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-    <circle cx="80" cy="80" r="4" fill="#ddd" opacity="0.4"/>
-  </svg>`,
-  tech: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#888" opacity="0.08"/>
-    <polygon points="50,105 62,45 86,105" fill="#A8A8B3"/>
-    <polygon points="76,98 90,50 108,98" fill="#888" opacity="0.9"/>
-    <polygon points="100,102 110,58 128,102" fill="#A8A8B3" opacity="0.7"/>
-    <circle cx="56" cy="105" r="6" fill="#ddd" opacity="0.7"/>
-    <circle cx="83" cy="98" r="5" fill="#bbb" opacity="0.7"/>
-    <circle cx="104" cy="102" r="5" fill="#ddd" opacity="0.6"/>
-    <line x1="56" y1="111" x2="56" y2="145" stroke="#666" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="83" y1="103" x2="83" y2="145" stroke="#666" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="104" y1="107" x2="104" y2="145" stroke="#666" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="74" cy="60" r="3" fill="#fff" opacity="0.3"/>
-    <circle cx="96" cy="65" r="2" fill="#fff" opacity="0.3"/>
-  </svg>`,
-  local: `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="80" cy="80" r="78" fill="#F7C948" opacity="0.1"/>
-    <ellipse cx="80" cy="95" rx="38" ry="12" fill="#F7C948" opacity="0.3"/>
-    <rect x="55" y="55" width="50" height="40" rx="4" fill="#F7C948"/>
-    <ellipse cx="80" cy="55" rx="25" ry="10" fill="#F5E642"/>
-    <rect x="62" y="62" width="36" height="6" rx="2" fill="#c9a000" opacity="0.3"/>
-    <rect x="62" y="72" width="36" height="6" rx="2" fill="#c9a000" opacity="0.2"/>
-    <rect x="62" y="82" width="28" height="6" rx="2" fill="#c9a000" opacity="0.2"/>
-    <circle cx="56" cy="107" r="5" fill="#F7C948"/>
-    <circle cx="80" cy="112" r="5" fill="#F5E642"/>
-    <circle cx="104" cy="107" r="5" fill="#F7C948"/>
-    <line x1="56" y1="107" x2="80" y2="112" stroke="#F7C948" stroke-width="2" opacity="0.5"/>
-    <line x1="80" y1="112" x2="104" y2="107" stroke="#F7C948" stroke-width="2" opacity="0.5"/>
-    <text x="80" y="145" font-size="10" text-anchor="middle" fill="#F7C948" opacity="0.5">嘉 義 本 命</text>
-  </svg>`
-};
-
-// ══════════════════════════════════════
-//  結果資料
+//  8種結果
+//  E/I: 多人/一人　J/P: 預約/無預約　W/D: 廣多站/深久待
+//  key = EJW / EJD / EPW / EPD / IJW / IJD / IPW / IPD
 // ══════════════════════════════════════
 const RESULTS = {
-  hot:{
-    name:'火辣串', emoji:'🌶', heroClass:'rh-r', dotColor:'#FF4A1C',
-    rarity:'稀有度 18%', subtitle:'說走就走・當下就是全部',
-    desc:'你去嘉義不是為了「發現什麼」，是為了「感受什麼」。東市場不用地圖，哪裡香往哪走，坐下來吃，吃完再說下一步。旅行結束你說的不是去了哪裡、看了什麼，你說的是「那個滷味好香」、「那碗火雞肉飯我還記得」、「那條巷子的溫度很特別」。你就是這支滋滋作響的烤串——還沒開口，熱度就先到了。你不需要故事，不需要背景，不需要意義，當下感受好，這趟就值了。',
-    otherDesc:'辣粉一撒，氣場就到位——你不需要說什麼，你的存在本身就讓旅行升溫。跟你在一起，大家不知不覺就放鬆了，因為你不趕，你不焦慮，你對「到了就好」這件事有一種別人學不來的篤定。朋友說跟你去嘉義最好，因為你的直覺比任何攻略都準，跟著你走從來不會覺得浪費時間。',
-    tags:['#當下就是全部','#香味就是地圖','#感受比資訊真實','#吃完才叫來過','#旅行充電池'],
-    quote:'「最好的旅行計畫，就是沒有計畫。」',
-    spots:[
-      {name:'昭和十八 J18',note:'對外開放，週一公休｜走進去就有東西吃有東西逛，不用想太多'},
-      {name:'Kagikaki 水文刨冰店',note:'對外開放，週一公休｜坐下來吃，讓身體感受嘉義的節奏'},
-      {name:'口袋派對會所',note:'對外開放，週一無休｜熱鬧、即興，跟你的旅行風格最搭'},
-    ],
-    good:['甜甜顏值串','卡恰蹦蹦串'],bad:['有木有串','冰冰棒棒串']
+  EJW:{
+    name:'火辣雞肉烤串', icon:'🔥', heroClass:'rh-1', dotColor:'#FF4A1C',
+    rarity:'稀有度 16%', subtitle:'揪團計劃・多站衝擊',
+    desc:'就像辣椒一入口，衝擊是即時的——你去嘉義之前預約早訂好，揪了一群人出發，選的地方都能讓人沒預期就被撞到。進去前你最興奮，出來第一句話是「欸你們覺得怎樣」。你不要走馬看花，你要大家的眼睛亮起來。',
+    otherDesc:'你是整趟旅行的發動機。大家說「哪天去嘉義吧」，真的出發是因為你說「我來訂」。朋友說跟你出門最省力，因為你把所有安排都擋在前面了，而且每次都踩到讓人說不出話的地方——就像那一口辣，回過神來才發現有多過癮。',
+    tags:['#揪團長','#預約達人','#感官衝擊派','#嘉義體驗策劃師','#出發前就準備好了'],
+    spots:[{name:'諸羅設計塾',note:'走進去之前不知道會看到什麼'},{name:'KAGI 共創基地',note:'新舊文化交叉，每次都有意外'},{name:'舊監更生島',note:'嘉義最有故事的空間'}],
+    good:['孜然雞肉烤蔥串','古早味正宗烤雞串'],bad:['繽紛棉花糖烤串','煉乳年糕烤串'],
+    quote:'「最好的體驗，是走出來之後大家都說不出話。」'
   },
-  surp:{
-    name:'卡恰蹦蹦串', emoji:'🎁', heroClass:'rh-p', dotColor:'#FF8FCB',
-    rarity:'最多人 22%', subtitle:'說走就走・沒人知道的才是重點',
-    desc:'「卡恰蹦蹦」來自日文扭蛋機的聲音——カチャ是轉動的聲音，ぼん是彈出來的聲音，合起來就是那個打開的瞬間。你去嘉義不是為了「感受」，是為了「發現」。那條沒有招牌的小路、那間沒有人推薦的店、那個問了老闆才知道的地方——你在意的不是吃得好不好、拍得美不美，是「這個地方只有我知道」的那種感覺。你就像這串還沒轉開的扭蛋，每一顆打開之前都是謎，而你最享受那個「卡恰蹦」的瞬間。',
-    otherDesc:'三個扭蛋串在一起才是你——每次旅行都是三層驚喜疊加，你永遠不走已知的路，但每次都帶回來一個沒人知道的地方。你是那種讓普通旅行變得有故事的人，不是因為你特別會說，是因為你特別會找。旅行完你說「我發現一個地方」，朋友去了說「這是哪裡找到的」。',
-    tags:['#卡恰蹦就是你','#沒人知道的才算','#轉進去看看','#意外才是重點','#旅行沒有固定答案'],
-    quote:'「最好的地方，都不在行程表上。」',
-    spots:[
-      {name:'台灣花磚博物館',note:'對外開放，週一無休｜轉角遇到一整面牆的驚喜'},
-      {name:'諸羅設計塾',note:'對外開放，週一無休｜走進去之前不知道會看到什麼'},
-      {name:'新店雨怪生態藝文教育園區',note:'對外開放，週一無休｜生態加藝文，最意外的組合'},
-    ],
-    good:['火辣串','甜甜顏值串'],bad:['古仔欸串','嘉義本命串']
+  EJD:{
+    name:'孜然雞肉烤蔥串', icon:'🌿', heroClass:'rh-2', dotColor:'#E8732A',
+    rarity:'稀有度 14%', subtitle:'揪團計劃・深挖主題',
+    desc:'孜然香氣層次多，蔥的鮮甜再往上疊——你揪人去嘉義，不是要去很多地方，是要大家真的嚐到那個深度。預約好，方向明確，你在現場問的問題比別人多，問完還拉著朋友說「你看這個細節」。感官刺激是入口，多重層次才是你想帶大家感受的。',
+    otherDesc:'跟你去嘉義，大家回來說的不是「去了幾個地方」，是「真的懂了一件事」。你的好奇心會傳染，就像孜然的香氣——你不用說什麼，大家自然就被帶著往深處走。',
+    tags:['#深度旅遊派','#主題旅行策劃師','#預約是基本禮貌','#帶人挖第二層','#嘉義文化潛水員'],
+    spots:[{name:'新店雨怪生態藝文教育園區',note:'生態＋藝文，最意外的組合'},{name:'小小逐月坊',note:'社區型空間，容易跟人聊起來'},{name:'杏福檜樂屋',note:'木香氣氛，走進去自然停下來'}],
+    good:['火辣雞肉烤串','古早味正宗烤雞串'],bad:['綜合口味雞肉串','繽紛棉花糖烤串'],
+    quote:'「去一個地方，寧可少去幾站，但每站都要真的進去。」'
   },
-  sweet:{
-    name:'甜甜顏值串', emoji:'🍬', heroClass:'rh-p', dotColor:'#ffb3d9',
-    rarity:'稀有度 15%', subtitle:'說走就走・眼睛先到，身體才到',
-    desc:'你走進一個空間，眼睛先開始工作。光從哪個方向來、這面牆的顏色能不能拍、等一下刨冰端上來要放哪個角度——你是那種進門先找角度的人。這不只是習慣，是你看世界的方式：你對美有一種本能的敏感，會在別人走過去的地方停下來，因為你看到了他們沒看到的那個光。你就像這串棉花糖和糖葫蘆——每一顆單獨都好看，放在一起更美，嘉義對你來說到處都是這樣的畫面。',
-    otherDesc:'你是那種讓整趟旅行都變好看的人。不只是因為你會拍，是因為你有一種讓人放鬆的氣質——跟你在一起，大家都開始用不同的眼光看同一個地方，像是突然發現每個角落都藏著一顆好看的糖。你的限動是整團點讚最多的那個，你只說「剛好而已」，但大家都知道那個光是你等來的。',
-    tags:['#進門先找角度','#光線對了才按快門','#嘉義每個角落都能拍','#J18早起俱樂部','#老屋比任何濾鏡好看'],
-    quote:'「光線只有這一刻，你剛好在。」',
-    spots:[
-      {name:'嘉義市立美術館古蹟棟',note:'對外開放，週一公休｜光影和建築都美，每個角落都是構圖'},
-      {name:'昭和十八 J18',note:'對外開放，週一公休｜昭和建築加文化市集，拍不完'},
-      {name:'二通永昌街角館',note:'對外開放，週一無休｜老街角雜貨感，嘉義最古典的顏值'},
-    ],
-    good:['火辣串','卡恰蹦蹦串'],bad:['有木有串','科技刻記串']
+  EPW:{
+    name:'古早味正宗烤雞串', icon:'🍗', heroClass:'rh-3', dotColor:'#C8902A',
+    rarity:'稀有度 14%', subtitle:'揪團隨興・歷史控漫遊',
+    desc:'不花俏，不需要包裝，就是要正宗的——你和朋友在嘉義走著，沒有行程，但一走到有歷史深度的地方你就自動停下來了。說明牌從頭看到尾，看完還有問題，然後把朋友拉過來說「欸你知道這個嗎」。正宗的東西走到哪都認得出來，就像你對嘉義文化的那種本能。',
+    otherDesc:'跟你出去，大家走著走著就多懂了一點什麼，但你不像在上課。你是那種讓人覺得「原來這個這麼有趣」的人——古早味不裝飾，你也不用刻意，那個真實感自然就傳出去了。',
+    tags:['#歷史控','#走到哪停到哪','#嘉義文化雷達','#不預約也能挖到好東西','#朋友裡的活字典'],
+    spots:[{name:'台灣圖書室',note:'問什麼都有答案的地方'},{name:'祥太文化館',note:'老屋裡藏著嘉義的時間'},{name:'活泉人文館',note:'社區人文脈絡，有研究深度'}],
+    good:['孜然雞肉烤蔥串','炭烤味雞肉烤串'],bad:['火辣雞肉烤串','綜合口味雞肉串'],
+    quote:'「最有意思的地方，都是走著走著才發現的。」'
   },
-  ice:{
-    name:'冰冰棒棒串', emoji:'🍦', heroClass:'rh-b', dotColor:'#00AEEF',
-    rarity:'稀有度 10%', subtitle:'計劃控・旅行要慢，才值得',
-    desc:'你去嘉義不趕行程。刨冰店等的那十分鐘你不查手機，你就看窗外。老屋咖啡廳你可以坐一個下午不覺得浪費。你是那種需要「真的在一個地方」才覺得有去過的人——走馬看花對你來說不算，打卡拍照也不算，要坐下來、感受到了，才算數。就像這三支雪糕、枝仔冰、霜淇淋串在一起，不用全部吃完，但每一口都要夠慢，才嚐得出層次。',
-    otherDesc:'你是那種讓旅行降速的人，而且是用最好的方式。就像一口剛從冰箱拿出來的冰棒，你的出現讓整趟行程從熱鬧趕場，變成真正清涼放鬆的旅行。朋友說最好的記憶都是你說「欸，我們坐一下好嗎」的那些時刻。你有一種安靜的力量，讓趕路的人想跟著你停下來。',
-    tags:['#不趕行程','#坐下來才算在旅行','#刨冰要慢慢吃','#老屋咖啡廳常客','#什麼都不做也是旅行'],
-    quote:'「旅行的速度，決定你能看見什麼。」',
-    spots:[
-      {name:'Kagikaki 水文刨冰店',note:'對外開放，週一公休｜點一碗，坐著，讓嘉義慢慢進來'},
-      {name:'島呼冊店',note:'對外開放，週一公休｜老屋書店，最適合坐一個下午的地方'},
-      {name:'洪雅書房',note:'對外開放，週一公休｜進去就不想出來，這就是你想要的'},
-    ],
-    good:['有木有串','古仔欸串'],bad:['火辣串','甜甜顏值串']
+  EPD:{
+    name:'炭烤味雞肉烤串', icon:'♨️', heroClass:'rh-4', dotColor:'#6B4C2A',
+    rarity:'最多人 18%', subtitle:'揪團隨興・深度久待',
+    desc:'炭火需要時間，急不得，慢慢等，那個煙燻香才會滲進來——你和朋友走進一個地方就不想出來了。沒有預約，沒有下一站，坐著翻書、吃著刨冰，聊到老闆開始說嘉義的故事，你問了第二個、第三個問題，一個小時就過去了。那個深度是等出來的，不是趕出來的。',
+    otherDesc:'跟你出去最輕鬆，但也最難走。大家說「再五分鐘」然後又坐了一個小時。回來說的不是去了幾個景點，是「那個老闆說的話好有意思」。就像炭烤的餘韻，回家了還在回味。',
+    tags:['#一站就夠久','#坐下來才算在旅行','#深度停留派','#嘉義人情味收集者','#不想走就不走'],
+    spots:[{name:'島呼冊店',note:'老屋書店，最適合坐一個下午'},{name:'洪雅書房',note:'進去就不想出來'},{name:'Kagikaki 水文刨冰店',note:'坐下來吃，讓嘉義慢慢進來'}],
+    good:['古早味正宗烤雞串','煉乳年糕烤串'],bad:['火辣雞肉烤串','木熏味手作雞肉串'],
+    quote:'「最好的旅伴，是那個願意跟你多坐一會兒的人。」'
   },
-  wood:{
-    name:'有木有串', emoji:'🪵', heroClass:'rh-br', dotColor:'#C8902A',
-    rarity:'稀有度 12%', subtitle:'計劃控・動手才算來過',
-    desc:'你走進工坊，第一句話是「我可以試試看嗎？」木頭的重量、陶土的溫度、刻刀壓下去的阻力——你要親手感受，才覺得真的來過。你是那種相信「做了才懂」的人，對你來說看和做之間有一條很大的鴻溝，而你永遠選擇跨過去那一側。就像這串形狀不規則的木頭塊，每一塊紋路都不一樣，拿起來才知道有多紮實——你在嘉義帶走的東西，也是這樣的重量。',
-    otherDesc:'你說「進去看一下」，出來的時候每個人都多了一點木頭香，都覺得這趟值得。你不太說話，但你做的事讓人印象深刻——你帶回去的不是明信片，是一個自己做的、有點歪但有溫度的東西，紋路獨一無二，剛好跟你這個人一樣。',
-    tags:['#可以試試看嗎','#動手才算來過','#預約體驗控','#嘉義木都探索隊','#帶走自己做的東西'],
-    quote:'「用手記住的，才不會忘。」',
-    spots:[
-      {name:'愛木村地方文化館',note:'對外開放，週一無休｜木都文化的核心，木文化體驗最完整'},
-      {name:'福樟良材木創工坊',note:'對外開放，週一公休｜動手做木作，這裡是你的主場'},
-      {name:'鑿花匠木雕藝術工作室',note:'預約制｜木雕師傅帶你做，最有重量的工藝體驗'},
-    ],
-    good:['冰冰棒棒串','古仔欸串'],bad:['火辣串','甜甜顏值串']
+  IPW:{
+    name:'綜合口味雞肉串', icon:'🍢', heroClass:'rh-5', dotColor:'#7B5EA7',
+    rarity:'稀有度 12%', subtitle:'一人隨興・多站感官',
+    desc:'多種口味，一人獨享，每口都不一樣——你一個人去嘉義，沒有計劃，走到哪算哪。門口覺得有意思就進去，進去了就用身體感受那個空間，不趕，等那個衝擊來。每個空間給你的刺激都不同，你全都留給自己，出來的時候記得那個溫度和氣味。',
+    otherDesc:'你的限動沒有標題，但大家看了都想去。你不解釋你的旅行，因為解釋了就少了一點什麼。朋友說你去嘉義像去做了一件自己的事——就像這串綜合口味，每一支都不一樣，但每一口都是你自己選的。',
+    tags:['#一人獨旅','#說走就走','#感官優先','#不需要行程','#嘉義即興探索者'],
+    spots:[{name:'新嘉義座',note:'表演展演空間，走進去就有驚喜'},{name:'嘉頌工作室',note:'創作者在現場，每次不一樣'},{name:'木更 Mugeneration',note:'工藝師傅在現場，問了才知道背後故事'}],
+    good:['炭烤味雞肉烤串','繽紛棉花糖烤串'],bad:['孜然雞肉烤蔥串','木熏味手作雞肉串'],
+    quote:'「一個人旅行，才能真的照自己的感覺走。」'
   },
-  old:{
-    name:'古仔欸串', emoji:'🍡', heroClass:'rh-s', dotColor:'#A8A8B3',
-    rarity:'稀有度 9%', subtitle:'彈性出發・對人比對地方更有興趣',
-    desc:'你在東市場停下來，不是因為香味，是因為老闆看起來有故事。你問他開了幾年、這條街以前是什麼樣子，聊了二十分鐘，這才是你覺得「有去過嘉義」的感覺。你就像這串外表樸實的日式團子——別人以為只是普通甜食，咬下去才知道醬料裡的細工。你對工法、對建築、對歷史的興趣，最終還是落在「是什麼樣的人做出這個」，景點是容器，人和記憶才是你真正想接觸的東西。',
-    otherDesc:'別人以為你只是普通旅客，和你聊過才知道裡面的講究——就像那串看起來普通的團子，咬下去才是真正的味道。你是那種讓旅行有厚度的人，不是因為你知道很多，是因為你讓每個你遇到的人都覺得被在乎。跟你去嘉義，大家回來說的不是「去了哪裡」，是「認識了一個很有意思的人」。',
-    tags:['#對人比對地方更有興趣','#問了才知道','#嘉義用聊的才懂','#老攤商說的都是真的','#景點是容器'],
-    quote:'「問一個問題，你看到的就不一樣了。」',
-    spots:[
-      {name:'歷史建築嘉義北社尾王姓宗祠',note:'對外開放，週一無休｜空間會說話，你聽得懂'},
-      {name:'嘉義神社暨附屬館所・昭和十八 J18',note:'對外開放，週一公休｜昭和建築，每個細節都有故事'},
-      {name:'祥太文化館',note:'對外開放，週一無休｜老屋裡藏著嘉義的時間'},
-    ],
-    good:['冰冰棒棒串','有木有串'],bad:['火辣串','卡恰蹦蹦串']
+  IJW:{
+    name:'木熏味手作雞肉串', icon:'🪵', heroClass:'rh-6', dotColor:'#3A7D44',
+    rarity:'稀有度 8%', subtitle:'一人計劃・工藝多站',
+    desc:'木熏的香氣是工序刻出來的，不是加出來的——你去嘉義有目標，親手做一件東西帶回去。預約早訂好，進了工坊第一個問「可以試試看嗎」的是你，你不只看師傅做，你要自己感受木頭的重量、工具的阻力、刻下去那一刀的力道。那個香氣是你做出來的，別人聞不到一樣的。',
+    otherDesc:'你帶回來的東西讓人覺得「你真的去過嘉義了」。不是因為去了哪裡，是因為做了什麼。動作比別人慢，問題比別人多，但出來的東西也比別人扎實——就像木熏，時間到了，味道自然出來。',
+    tags:['#工藝手作控','#預約是習慣','#動手才算來過','#一人或多人都行','#帶著作品回家'],
+    spots:[{name:'福樟良材木創工坊',note:'動手做木作，這裡是你的主場'},{name:'萬花工坊',note:'細緻手作體驗，一個人做最好'},{name:'口袋派對會所',note:'熱鬧即興，工藝體驗的另一面'}],
+    good:['火辣雞肉烤串','孜然雞肉烤蔥串'],bad:['炭烤味雞肉烤串','煉乳年糕烤串'],
+    quote:'「用手記住的，才不會忘。」'
   },
-  tech:{
-    name:'科技刻記串', emoji:'⚙️', heroClass:'rh-s', dotColor:'#888',
-    rarity:'稀有度 8%', subtitle:'計劃控・搞懂怎麼做到的，比看到更重要',
-    desc:'說明牌你會從頭看到尾，看完還有問題。你在花磚博物館同一塊磚前站很久，不是因為它漂亮，是因為你在想這個顏色是怎麼燒出來的。你就像這串金工花磚——銀光金屬片、金工零件、花磚圖案，三種材質串在一起，精密、有光澤，每一個細節都是刻出來的，不是裝飾，是邏輯。你的滿足感來自「搞懂了」這件事本身，旅行對你來說是一種田野調查，只是你不覺得這有什麼特別。',
-    otherDesc:'表面看起來只是裝飾，但你知道每一個細節都有邏輯——就像這串金工花磚，光澤底下是刻出來的結構。你是那種讓旅行變得有深度的人，讓大家從「看到了」變成「真的理解了」。你給朋友的推薦不是清單，是一段有脈絡的說明：「這個要配這個看才有意思，因為……」朋友說你去哪都像在做田野調查，你說你只是想搞懂。',
-    tags:['#搞懂比看到更重要','#說明牌從頭看到尾','#工藝背後的邏輯','#旅行完還有問題','#理解才叫來過'],
-    quote:'「真正理解一件事，要從它怎麼被做出來開始。」',
-    spots:[
-      {name:'台灣花磚博物館',note:'對外開放，週一無休｜製作工法有說明，你會在這裡站很久'},
-      {name:'龍鳳祥交趾陶藝社',note:'預約制｜交趾陶最精密的地方，問題問不完'},
-      {name:'KAGI 共創基地',note:'預約制｜新舊技術交叉，剛好對你的胃口'},
-    ],
-    good:['冰冰棒棒串','嘉義本命串'],bad:['甜甜顏值串','火辣串']
+  IPD:{
+    name:'繽紛棉花糖烤串', icon:'🍬', heroClass:'rh-7', dotColor:'#E91E8C',
+    rarity:'稀有度 10%', subtitle:'一人隨興・美感深度',
+    desc:'繽紛、好看，每顆都是構圖——你去嘉義知名空間一定會去，不是因為攻略說要去，是因為你知道值得。走進去就找那個最對的角落，光從哪個方向來、這面牆的顏色、刨冰放哪個角度，你的眼睛一直在工作，但你不是在努力拍，你是對美有本能的敏感。就像棉花糖，軟的、甜的、有顏色的，走到哪都讓人停下來。',
+    otherDesc:'你的照片讓人覺得嘉義比他們想的還要美。你不解釋拍攝技巧，但大家看了都想去同一個地方。你讓嘉義的美感對別人變得具體——不是「嘉義很漂亮」，是「那個光我看了很久」。',
+    tags:['#打卡必去','#美感雷達','#行程隨意','#一人多人都自在','#嘉義顏值代言人'],
+    spots:[{name:'嘉義市立美術館古蹟棟',note:'光影和建築都美，每個角落都是構圖'},{name:'台灣花磚博物館',note:'轉角遇到一整面牆的驚喜'},{name:'HERMIT & Co.',note:'安靜的選物空間，適合一個人慢慢逛'}],
+    good:['綜合口味雞肉串','煉乳年糕烤串'],bad:['孜然雞肉烤蔥串','木熏味手作雞肉串'],
+    quote:'「好的空間不需要說明，進去就知道了。」'
   },
-  local:{
-    name:'嘉義本命串', emoji:'🍚', heroClass:'rh-y', dotColor:'#F7C948',
-    rarity:'最稀有 6%', subtitle:'計劃控・嘉義對你來說不只是旅遊',
-    desc:'火雞肉飯你有排行榜。花磚博物館幾點開你知道。去嘉義的前一天你會把行程再看一遍，確認時間抓夠了沒。你就像這串拆開的火雞肉飯——米飯粒、雞肉片、鹹黃瓜，三樣各自串成一支，組合在一起才是完整的一碗，缺一樣就不是嘉義味。你對嘉義的執著也是這樣，每一層都要對，少一個細節就不算完整，每次來都想再多看一層。',
-    otherDesc:'就像那碗火雞肉飯，飯是底、肉是主角、鹹黃瓜是點睛——你對嘉義的認識也是這樣，層層疊加，缺一不可。有人問你嘉義要去哪，你不給清單，你先問他「你想要哪一種嘉義？」然後給他一條有順序、有理由的路線。你不是導遊，但你對嘉義的那份認真，會讓人也開始認真對待這座城市。',
-    tags:['#嘉義我最熟','#火雞肉飯有排行榜','#行程表精確到分鐘','#每次來都有新問題','#嘉義推廣大使無給職'],
-    quote:'「嘉義每次來都不一樣，但你每次都準備好了。」',
-    spots:[
-      {name:'嘉義市立博物館',note:'對外開放，週一公休｜嘉義文化最完整的一站，你應該不是第一次來了'},
-      {name:'台灣圖書室',note:'對外開放，週一公休｜問什麼都有答案，剛好符合你'},
-      {name:'舊監更生島',note:'預約制｜嘉義最有故事的空間，你早就想來了'},
-    ],
-    good:['古仔欸串','有木有串'],bad:['卡恰蹦蹦串','科技刻記串']
+  IJD:{
+    name:'煉乳年糕烤串', icon:'🍮', heroClass:'rh-8', dotColor:'#B5451B',
+    rarity:'稀有度 8%', subtitle:'一人計劃・深度打卡',
+    desc:'好看，有層次，慢慢咀嚼才有滋味——你去嘉義不預約，走到了就進去。你想拍，也想懂，先花時間找到最對的角度，然後走過去問老闆「這棟建築以前是做什麼的」。對你來說拍照和理解不是兩件事，真的懂了之後，照片才會不一樣。就像煉乳年糕，外表好看，但咬下去那個厚度才是重點。',
+    otherDesc:'朋友不知道要說你是文青還是打卡仔，因為你兩個都是，而且都很自然。你拍出來的照片有故事感，說起故事來又不掉書袋。跟你去嘉義，不只帶回一張好看的照片，還帶回一個真的屬於自己的記憶——就像那個甜，甜得有層次，回味的時候才知道有多好。',
+    tags:['#拍照也懂深度','#行程隨興','#一人多人都行','#嘉義全能旅人','#美感與故事兼具'],
+    spots:[{name:'嘉義神社暨附屬館所・昭和十八 J18',note:'昭和建築，每個細節都有故事'},{name:'二通永昌街角館',note:'老街角故事，老闆有話說'},{name:'愛木村地方文化館',note:'木都文化的核心'}],
+    good:['炭烤味雞肉烤串','繽紛棉花糖烤串'],bad:['火辣雞肉烤串','木熏味手作雞肉串'],
+    quote:'「旅行最好的狀態，是拍得好看，也說得出故事。」'
   }
 };
 
 // ══════════════════════════════════════
-//  題目：雙軸計分
-//  每個選項帶兩個分數維度：
-//  travel: E(說走就走)/P(計劃控)/J(彈性)
-//  culture: S(感官)/H(人文)/M(混合)
-//  同時也累積對各串的直接加分
+//  9題 強迫二選一
+//  Q1 Q4 Q7 → E vs I
+//  Q2 Q5 Q8 → J vs P
+//  Q3 Q6 Q9 → W vs D
+//  每題選A給第一個維度+1，選B給第二個維度+1
+//  最終各維度0~3分，≥2判定為該端，1.5（平手）預設E/J/W
 // ══════════════════════════════════════
 const QUESTIONS = [
-  // Q1 bonus: hot / sweet / local / tech
+  // Q1: E/I ｜出發前一天晚上｜一人 vs 多人
   {
-    text:'出發前一天晚上，要規劃嘉義美食一日遊，你怎麼做？',
+    text:'出發前一天晚上，你突然很想去嘉義。你第一個動作是？',
     options:[
-      {text:'什麼都沒準備，到了再說', travel:'E', culture:'S', bonus:'hot'},
-      {text:'在 IG 存幾個看起來好拍的地方', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'行程表排好，三餐全訂位', travel:'P', culture:'H', bonus:'local'},
-      {text:'查完嘉義美食名單，到現場憑感覺', travel:'P', culture:'H', bonus:'tech'},
+      {text:'傳訊息揪一群朋友「明天要不要一起去嘉義」', E:1},
+      {text:'傳訊息問一個好友要不要一起去', E:1},
+      {text:'自己打開地圖開始查，不用找人陪', I:1},
+      {text:'什麼都沒做，睡一覺明天再說', I:1},
     ]
   },
-  // Q2 bonus: hot / sweet / tech / local
+  // Q2: J/P ｜火雞肉飯選哪家｜有無規劃
   {
-    text:'嘉義火雞肉飯兩家都在排隊，一家老字號、一家評價極高的新店。你？',
+    text:'你到嘉義，想吃火雞肉飯。街上有兩家，一家老字號、一家網紅推薦的名店。你？',
     options:[
-      {text:'不排隊，直接找下一家', travel:'E', culture:'S', bonus:'hot'},
-      {text:'看外觀，選裝潢比較好看的', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'查一下評價，搞清楚差在哪再選', travel:'P', culture:'H', bonus:'tech'},
-      {text:'選老字號，正宗的比網紅的值得', travel:'P', culture:'H', bonus:'local'},
+      {text:'出發前就查好哪家比較值得，直接走過去', J:1},
+      {text:'兩家都查一下評價，再當場決定', J:1},
+      {text:'不排隊，直接找下一家', P:1},
+      {text:'隨便，哪家先看到就進去', P:1},
     ]
   },
-  // Q3 bonus: old / surp / wood / ice
+  // Q3: W/D ｜火雞肉飯拌不拌｜感官衝擊 vs 深度感受
   {
-    text:'火雞肉飯端上來，你怎麼吃？',
+    text:'火雞肉飯端上來了，你怎麼吃？',
     options:[
-      {text:'問老闆「你們這裡怎麼吃比較好？」然後照他說的做', travel:'J', culture:'H', bonus:'old'},
-      {text:'不拌，加個沒試過的配料，看看什麼味道', travel:'J', culture:'M', bonus:'surp'},
-      {text:'拌，把每樣配料一個一個慢慢加，感受不同', travel:'J', culture:'S', bonus:'wood'},
-      {text:'先不拌原味吃幾口，再慢慢拌，不急', travel:'P', culture:'H', bonus:'ice'},
+      {text:'問老闆怎麼吃最好，然後多試幾種不同配料組合', W:1},
+      {text:'直接全部拌進去，口味越多越過癮', W:1},
+      {text:'先拍一張，再不拌原味慢慢吃，感受每一口', D:1},
+      {text:'不拌，一口一口慢慢吃，這碗本身就夠了', D:1},
     ]
   },
-  // Q4 bonus: surp / old / wood / ice
+  // Q4: E/I ｜阿伯搭話｜多人社交 vs 一人節奏
   {
-    text:'想去的老屋咖啡沒開，這時路人突然搭話，你會？',
+    text:'吃完火雞肉飯，旁邊一個在地阿伯主動跟你搭話。你？',
     options:[
-      {text:'婉拒，自己找下一個目的地', travel:'J', culture:'M', bonus:'surp'},
-      {text:'聊起來，問他這家老屋開幾年了、這一帶以前什麼樣子', travel:'J', culture:'H', bonus:'old'},
-      {text:'問他附近有沒有可以動手體驗的地方', travel:'J', culture:'S', bonus:'wood'},
-      {text:'婉拒，繼續照自己的節奏慢慢走', travel:'P', culture:'H', bonus:'ice'},
+      {text:'聊起來，問他在地人都推薦去哪', E:1},
+      {text:'笑著回應，問他這一帶還有什麼好逛的', E:1},
+      {text:'禮貌點個頭，繼續自己的節奏', I:1},
+      {text:'禮貌回應幾句，起身去下一個地方', I:1},
     ]
   },
-  // Q5 bonus: sweet / tech / hot / local
+  // Q5: J/P ｜老屋咖啡沒開｜預約工藝體驗 vs 隨興探索
   {
-    text:'嘉義串燒店，你看到招牌特串，你點嗎？',
+    text:'你走到之前存好的老屋咖啡，門關著。你？',
     options:[
-      {text:'看好不好看，再決定', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'問老闆背後的故事，聽完再決定', travel:'P', culture:'H', bonus:'tech'},
-      {text:'什麼都點，招牌也不放過', travel:'E', culture:'S', bonus:'hot'},
-      {text:'招牌就必點，不用多想', travel:'P', culture:'H', bonus:'local'},
+      {text:'馬上查附近有沒有工藝工坊可以預約，當場訂下來', J:1},
+      {text:'掏出手機查附近備案，選一個評價好的再走', J:1},
+      {text:'繞著這條街走，看走到哪就到哪', P:1},
+      {text:'直接走進旁邊看起來有意思的巷子', P:1},
     ]
   },
-  // Q6 bonus: wood / old / surp / ice
+  // Q6: W/D ｜串燒店點餐｜多站感官 vs 打卡深度
   {
-    text:'串燒店等待中，什麼最吸引你？',
+    text:'你走進神秘串燒店，菜單上有幾十種串。你怎麼點？',
     options:[
-      {text:'牆上的嘉義活動海報', travel:'J', culture:'S', bonus:'wood'},
-      {text:'找機會問老闆這家店做多久了', travel:'J', culture:'H', bonus:'old'},
-      {text:'離開位子，拍個照', travel:'J', culture:'M', bonus:'surp'},
-      {text:'坐著慢慢觀察四周的建築和空間', travel:'P', culture:'H', bonus:'ice'},
+      {text:'多點幾種，各種口味都想試試，吃完一種換下一種', W:1},
+      {text:'問老闆什麼最值得，每種各來一串，感受不同', W:1},
+      {text:'找最有特色的那種，好好拍一張，然後慢慢吃', D:1},
+      {text:'只點最招牌的一種，把它從頭吃到最後一口', D:1},
     ]
   },
-  // Q7 bonus: sweet / tech / old / local
+  // Q7: E/I ｜串燒店等待中｜多人社交 vs 一人觀察
   {
-    text:'旅行結束，朋友問你「嘉義怎麼樣」，你怎麼回？',
+    text:'串還沒上，等待的時候你在做什麼？',
     options:[
-      {text:'傳張照片說「你看這個光，美死了」', travel:'E', culture:'S', bonus:'sweet'},
-      {text:'說「我研究了花磚的製作方式，真的很複雜」', travel:'P', culture:'H', bonus:'tech'},
-      {text:'說「我跟一個賣魚丸的阿伯聊很久，他說以前這條街⋯⋯」', travel:'J', culture:'H', bonus:'old'},
-      {text:'把行程表傳給他，說「照這個走就對了」', travel:'P', culture:'H', bonus:'local'},
+      {text:'跟旁邊的人搭話，問他們今天點了什麼', E:1},
+      {text:'問老闆這家店的故事，聊起來', E:1},
+      {text:'自己觀察店裡的空間和陳設，越看越入神', I:1},
+      {text:'看著窗外發呆，讓腦袋放空', I:1},
     ]
   },
-  // Q8 bonus: hot / surp / wood / ice
+  // Q8: J/P ｜串燒店限定串｜深度了解 vs 感官直覺
   {
-    text:'嘉義最後半天，你怎麼用？',
+    text:'吃到一半，老闆說今天有個限定串，食材是季節限定。你？',
     options:[
-      {text:'補昨天沒進去的那家，不吃到不走', travel:'E', culture:'S', bonus:'hot'},
-      {text:'走一條這趟沒走過的街，看能遇到什麼', travel:'J', culture:'M', bonus:'surp'},
-      {text:'去預約好的體驗，把東西做完帶回去', travel:'J', culture:'S', bonus:'wood'},
-      {text:'不排新行程，在熟悉的地方慢慢走，讓旅行慢慢收尾', travel:'P', culture:'H', bonus:'ice'},
+      {text:'問老闆這個串怎麼做、用了什麼食材，搞清楚再決定', J:1},
+      {text:'先看旁邊的人點了沒，評估一下再說', J:1},
+      {text:'想都沒想就說「幫我來一支」，吃了再說', P:1},
+      {text:'直接點，限定的就是要趁現在試', P:1},
+    ]
+  },
+  // Q9: W/D ｜結帳前秘密空間｜多站打卡 vs 工藝深待
+  {
+    text:'結帳前，老闆說旁邊有個秘密小空間，裡面有師傅在現場做工藝，也可以動手試試。你？',
+    options:[
+      {text:'當然進去，多看一個地方，拍幾張照片記錄', W:1},
+      {text:'進去逛一下，順便問老闆空間背後的故事', W:1},
+      {text:'進去，認真動手做，帶一個自己做的東西回家', D:1},
+      {text:'不進去，就在位子上多坐一下，把今天的感覺消化', D:1},
     ]
   }
 ];
 
-// 判斷邏輯矩陣（旅遊屬性 × 文化偏好 → 候選串，再用 bonus 決勝）
-const TYPE_MATRIX = {
-  'E_S': ['hot','sweet'],
-  'E_M': ['surp','hot'],
-  'E_H': ['surp','old'],
-  'J_S': ['wood','surp'],
-  'J_M': ['surp','wood'],
-  'J_H': ['old','ice'],
-  'P_S': ['wood','local'],
-  'P_M': ['tech','local'],
-  'P_H': ['ice','tech','old','local'],
-};
-
-// ══════════════════════════════════════
-//  狀態
-// ══════════════════════════════════════
-let travelScores = {E:0, P:0, J:0};
-let cultureScores = {S:0, H:0, M:0};
-let bonusScores = {hot:0,surp:0,sweet:0,ice:0,wood:0,old:0,tech:0,local:0};
+let scores = {E:0,I:0,J:0,P:0,W:0,D:0};
+let answers = [];
 let currentQ = 0;
-let answers = []; // 儲存每題答案 {travel, culture, bonus}
 
-// ══════════════════════════════════════
-//  測驗邏輯
-// ══════════════════════════════════════
+function getResult(){
+  const ei = scores.E >= scores.I ? 'E' : 'I';
+  const jp = scores.J >= scores.P ? 'J' : 'P';
+  const wd = scores.W >= scores.D ? 'W' : 'D';
+  return ei+jp+wd;
+}
+
 function startQuiz(){
+  scores={E:0,I:0,J:0,P:0,W:0,D:0};
+  answers=[];currentQ=0;
   document.getElementById('splash').style.display='none';
   document.getElementById('quiz').style.display='block';
   renderQuestion();
 }
 
 function renderQuestion(){
-  const q = QUESTIONS[currentQ];
-  const pct = (currentQ / QUESTIONS.length)*100;
-  document.getElementById('progressFill').style.width = pct+'%';
-  document.getElementById('progressLabel').textContent = `Q ${currentQ+1} / ${QUESTIONS.length}`;
-  const block = document.getElementById('questionBlock');
-  block.style.animation='none'; block.offsetHeight; block.style.animation='';
-  const backBtn = currentQ > 0
-    ? `<button class="back-q-btn" onclick="goBack()">← 上一題</button>`
-    : '';
-  block.innerHTML = `
-    <div class="q-number">QUESTION ${String(currentQ+1).padStart(2,'0')}</div>
+  const q=QUESTIONS[currentQ];
+  const pct=(currentQ/QUESTIONS.length)*100;
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent='Q '+(currentQ+1)+' / '+QUESTIONS.length;
+  const optionsHtml = q.options.map((o,i)=>
+    `<button class="option-btn" onclick="selectAnswer(${i})">${o.text}</button>`
+  ).join('');
+  const html=`
+    <div class="q-number">Q ${String(currentQ+1).padStart(2,'0')}</div>
     <div class="q-text">${q.text}</div>
-    <div class="options">
-      ${q.options.map(o=>`<button class="option-btn" onclick="selectOption(this,'${o.travel}','${o.culture}','${o.bonus}')">${o.text}</button>`).join('')}
-    </div>
-    ${backBtn}`;
+    <div class="options">${optionsHtml}</div>
+    ${currentQ>0?`<button class="back-q-btn" onclick="goBack()">← 上一題</button>`:''}
+  `;
+  document.getElementById('questionBlock').innerHTML=html;
+  document.getElementById('questionBlock').style.animation='none';
+  requestAnimationFrame(()=>{document.getElementById('questionBlock').style.animation='fadeUp .4s ease both';});
 }
 
-function selectOption(btn, travel, culture, bonus){
-  document.querySelectorAll('.option-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  setTimeout(()=>{
-    // 儲存這題的答案
-    answers[currentQ] = {travel, culture, bonus};
-    travelScores[travel]++;
-    cultureScores[culture]++;
-    bonusScores[bonus]++;
-    currentQ++;
-    currentQ < QUESTIONS.length ? renderQuestion() : showResult();
-  }, 320);
+function selectAnswer(idx){
+  const q=QUESTIONS[currentQ];
+  const opt=q.options[idx];
+  // 記錄本題選了哪個選項及加了哪些分
+  const added={};
+  Object.keys(opt).forEach(k=>{
+    if(scores[k]!==undefined){ scores[k]+=opt[k]; added[k]=opt[k]; }
+  });
+  answers.push({q:currentQ,idx,added});
+  if(currentQ<QUESTIONS.length-1){currentQ++;renderQuestion();}
+  else{showResult();}
 }
 
 function goBack(){
-  if(currentQ <= 0) return;
-  // 還原上一題的分數
-  const prev = answers[currentQ - 1];
-  if(prev){
-    travelScores[prev.travel]--;
-    cultureScores[prev.culture]--;
-    bonusScores[prev.bonus]--;
-    answers.splice(currentQ - 1, 1);
-  }
+  if(currentQ<=0)return;
+  const last=answers.pop();
+  Object.keys(last.added).forEach(k=>{ scores[k]-=last.added[k]; });
   currentQ--;
   renderQuestion();
 }
 
-function calcResult(){
-  // 主軸判斷
-  const topTravel = Object.entries(travelScores).sort((a,b)=>b[1]-a[1])[0][0];
-  const topCulture = Object.entries(cultureScores).sort((a,b)=>b[1]-a[1])[0][0];
-  const key = topTravel+'_'+topCulture;
-  const candidates = TYPE_MATRIX[key] || Object.keys(RESULTS);
-  // 在候選人裡找 bonus 最高的
-  let winner = candidates[0];
-  let best = -1;
-  candidates.forEach(c=>{ if(bonusScores[c]>best){best=bonusScores[c];winner=c;} });
-  // 如果候選人都沒有 bonus，直接用 bonus 最高的
-  const globalBest = Object.entries(bonusScores).sort((a,b)=>b[1]-a[1])[0][0];
-  if(best===0) winner = globalBest;
-  return winner;
-}
-
 function showResult(){
-  const winner = calcResult();
-  const r = RESULTS[winner];
+  const key=getResult();
+  const r=RESULTS[key];
   document.getElementById('quiz').style.display='none';
   document.getElementById('result').style.display='block';
-
-  const hero = document.getElementById('resultHero');
-  hero.className = 'result-hero '+r.heroClass;
-  document.getElementById('charWrap').innerHTML = CHARS[winner];
-  document.getElementById('rarityBadge').textContent = r.rarity;
-  document.getElementById('resultTypeName').textContent = r.emoji+' '+r.name;
-  document.getElementById('resultSubtitle').textContent = r.subtitle;
-  document.getElementById('resultDesc').textContent = r.desc;
-  document.getElementById('resultOtherDesc').textContent = '別人眼中的你：'+r.otherDesc;
-
-  document.getElementById('resultTags').innerHTML = r.tags.map(t=>`<span class="flag-tag">${t}</span>`).join('');
-
-  document.getElementById('resultSpots').innerHTML = r.spots.map(s=>`
+  document.getElementById('resultHero').className='result-hero '+r.heroClass;
+  document.getElementById('resultIcon').textContent=r.icon;
+  document.getElementById('rarityBadge').textContent=r.rarity;
+  document.getElementById('resultTypeName').textContent=r.name;
+  document.getElementById('resultSubtitle').textContent=r.subtitle;
+  document.getElementById('resultDesc').textContent=r.desc;
+  document.getElementById('resultOtherDesc').textContent=r.otherDesc;
+  document.getElementById('resultTags').innerHTML=r.tags.map(t=>`<span class="flag-tag">${t}</span>`).join('');
+  document.getElementById('resultSpots').innerHTML=r.spots.map(s=>`
     <div class="spot-row">
-      <span class="spot-dot" style="background:${r.dotColor}"></span>
+      <div class="spot-dot" style="background:${r.dotColor}"></div>
       <div class="spot-info"><div class="spot-name">${s.name}</div><div class="spot-note">${s.note}</div></div>
     </div>`).join('');
-
-  document.getElementById('partnerWrap').innerHTML = `
-    <div class="partner-card">
-      <div class="partner-label">💚 超合拍旅伴</div>
-      <div class="partner-names">${r.good.join('、')}</div>
-    </div>
-    <div class="partner-card">
-      <div class="partner-label">❤️ 有點挑戰</div>
-      <div class="partner-names">${r.bad.join('、')}</div>
-    </div>`;
-
-  document.getElementById('resultQuote').textContent = r.quote;
-
-  const mapLink = CONFIG.MAP_LINKS[winner];
-  document.getElementById('ctaButtons').innerHTML = `
-    <a class="cta-btn line-btn" href="https://lin.ee/RNRpMCj" target="_blank" rel="noopener">
-      <span class="cta-icon">💬</span>
-      <span class="cta-text"><strong>加入文化＋1串！LINE</strong><span>獲得更多站點資訊與活動通知</span></span>
-      <span class="cta-arrow">→</span>
-    </a>
-    <a class="cta-btn ig-btn" href="https://www.instagram.com/ccc.chiayi/" target="_blank" rel="noopener">
-      <span class="cta-icon">📸</span>
-      <span class="cta-text"><strong>追蹤 IG @ccc.chiayi</strong><span>看看其他人的嘉義文化串旅行</span></span>
-      <span class="cta-arrow">→</span>
-    </a>
-    <a class="cta-btn map-btn" href="${mapLink}" target="_blank" rel="noopener">
-      <span class="cta-icon">📍</span>
-      <span class="cta-text"><strong>查看推薦站點地圖</strong><span>探索你的${r.name}路線</span></span>
-      <span class="cta-arrow">→</span>
-    </a>`;
-
-  sendToSheet(winner);
+  document.getElementById('partnerWrap').innerHTML=`
+    <div class="partner-card"><div class="partner-label">✅ 適合一起玩</div><div class="partner-names">${r.good.join('<br>')}</div></div>
+    <div class="partner-card"><div class="partner-label">❌ 不太合拍</div><div class="partner-names">${r.bad.join('<br>')}</div></div>`;
+  document.getElementById('resultQuote').textContent=r.quote;
+  sendToSheet(key);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ══════════════════════════════════════
-//  Google Sheets 串接
-// ══════════════════════════════════════
 function sendToSheet(type){
-  if(!CONFIG.APPS_SCRIPT_URL||CONFIG.APPS_SCRIPT_URL.includes('請貼上')) return;
+  if(!CONFIG.APPS_SCRIPT_URL)return;
   fetch(CONFIG.APPS_SCRIPT_URL+'?type='+type+'&t='+Date.now(),{method:'GET',mode:'no-cors'}).catch(()=>{});
 }
 
 function loadAdminStats(){
-  const el = document.getElementById('adminContent');
+  const el=document.getElementById('adminContent');
   el.innerHTML='<div class="admin-loading">從 Google 試算表載入數據中…</div>';
-  if(!CONFIG.APPS_SCRIPT_URL||CONFIG.APPS_SCRIPT_URL.includes('請貼上')){
-    el.innerHTML='<div class="admin-error">⚠️ 尚未設定 Apps Script URL</div>'; return;
-  }
   fetch(CONFIG.APPS_SCRIPT_URL+'?action=stats&t='+Date.now())
-    .then(r=>r.json()).then(renderAdminStats)
-    .catch(()=>{ el.innerHTML='<div class="admin-error">⚠️ 無法取得數據，請確認 Apps Script 設定正確。</div>'; });
+    .then(r=>r.json()).then(data=>{
+      const keys=['EJW','EJD','EPW','EPD','IPW','IJW','IPD','IJD'];
+      const total=keys.reduce((s,k)=>s+(data[k]||0),0);
+      const pct=n=>total>0?Math.round((n/total)*100):0;
+      const rows=keys.map(k=>{
+        const r=RESULTS[k];const n=data[k]||0;
+        return `<div class="stat-row">
+          <div class="stat-name"><span style="width:8px;height:8px;border-radius:50%;background:${r.dotColor};display:inline-block;flex-shrink:0"></span>${r.icon} ${r.name}</div>
+          <div style="flex:1;position:relative;height:4px;background:#222;margin:0 .5rem"><div style="position:absolute;left:0;top:0;height:100%;width:${pct(n)}%;background:${r.dotColor};transition:width .8s ease"></div></div>
+          <div class="stat-num">${n} <span class="stat-pct">${pct(n)}%</span></div>
+        </div>`;
+      }).join('');
+      el.innerHTML=`<div class="stat-total-row"><span class="stat-total-num">${total}</span><span class="stat-total-label">總填答人數</span></div><div class="stats-list">${rows}</div>`;
+    }).catch(()=>{el.innerHTML='<div class="admin-error">⚠️ 無法取得數據，請確認 Apps Script 設定正確。</div>';});
 }
 
-function renderAdminStats(data){
-  const keys=['hot','surp','sweet','ice','wood','old','tech','local'];
-  const total = keys.reduce((s,k)=>s+(data[k]||0),0);
-  const pct = n => total>0?Math.round((n/total)*100):0;
-  const rows = keys.map(k=>{
-    const r=RESULTS[k]; const n=data[k]||0;
-    return `<div class="stat-row">
-      <div class="stat-name"><span style="width:8px;height:8px;border-radius:50%;background:${r.dotColor};display:inline-block;flex-shrink:0"></span>${r.emoji} ${r.name}</div>
-      <div style="flex:1;position:relative;height:4px;background:#222;margin:0 .5rem">
-        <div style="position:absolute;left:0;top:0;height:100%;width:${pct(n)}%;background:${r.dotColor};transition:width .8s ease"></div>
-      </div>
-      <div class="stat-num">${n} <span class="stat-pct">${pct(n)}%</span></div>
-    </div>`;
-  }).join('');
-  document.getElementById('adminContent').innerHTML=`
-    <div class="stat-total-row">
-      <span class="stat-total-num">${total}</span>
-      <span class="stat-total-label">總填答人數</span>
-    </div>
-    <div class="stats-list">${rows}</div>`;
-}
-
-// ══════════════════════════════════════
-//  後台密碼
-// ══════════════════════════════════════
 function openAdmin(){
   document.getElementById('pwOverlay').classList.add('active');
   setTimeout(()=>document.getElementById('pwInput').focus(),100);
@@ -781,30 +482,21 @@ function checkPw(){
     document.getElementById('pwInput').value='';
     document.getElementById('pwError').style.display='none';
     ['result','splash','quiz'].forEach(id=>document.getElementById(id).style.display='none');
-    document.getElementById('splash').style.display='none';
     document.getElementById('admin').style.display='block';
-    loadAdminStats();
-    window.scrollTo({top:0,behavior:'smooth'});
-  } else {
+    loadAdminStats();window.scrollTo({top:0,behavior:'smooth'});
+  }else{
     document.getElementById('pwError').style.display='block';
     document.getElementById('pwInput').value='';
     document.getElementById('pwInput').focus();
   }
 }
-function goHome(){
-  document.getElementById('admin').style.display='none';
-  document.getElementById('splash').style.display='flex';
-}
+function goHome(){document.getElementById('admin').style.display='none';document.getElementById('splash').style.display='flex';}
 function resetQuiz(){
-  travelScores={E:0,P:0,J:0};
-  cultureScores={S:0,H:0,M:0};
-  bonusScores={hot:0,surp:0,sweet:0,ice:0,wood:0,old:0,tech:0,local:0};
-  answers=[];
-  currentQ=0;
+  scores={E:0,I:0,J:0,P:0,W:0,D:0};answers=[];currentQ=0;
   document.getElementById('result').style.display='none';
   document.getElementById('splash').style.display='flex';
 }
-if(location.hash==='#admin') openAdmin();
+if(location.hash==='#admin')openAdmin();
 </script>
 </body>
 </html>
