@@ -556,9 +556,8 @@ function showSplash(){
 
 // ── Admin ──
 const ADMIN_PW = 'ccc2026';
-const API_BASE = 'https://api.jsonbin.io/v3/b';
-const BIN_ID   = '';
-const API_KEY  = '';
+// ← 把你的 Google Apps Script Web App URL 貼在這裡
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbwTK5L5AW6emVwVA-LJkg4B5kJQ5sTzinEs7v7mdai46jaPP1i19ArWIV4VQB5ul2USOg/exec';
 
 function checkAdmin(){
   if(window.location.hash==='#admin'){
@@ -582,10 +581,13 @@ function checkPw(){
 function loadAdmin(){
   const el = document.getElementById('adminStats');
   el.innerHTML = '<div class="admin-loading">載入中…</div>';
-  if(!BIN_ID){ renderAdminDemo(); return; }
-  fetch(`${API_BASE}/${BIN_ID}/latest`,{headers:{'X-Master-Key':API_KEY}})
-    .then(r=>r.json()).then(d=>renderAdminStats(d.record||{}))
-    .catch(()=>renderAdminDemo());
+  if(!GAS_URL){ renderAdminDemo(); return; }
+  fetch(GAS_URL+'?action=stats')
+    .then(r=>r.json())
+    .then(data=>renderAdminStats(data))
+    .catch(()=>{
+      el.innerHTML = '<div class="admin-error">載入失敗，請確認 Script URL 是否正確。</div>';
+    });
 }
 
 function renderAdminDemo(){
@@ -614,13 +616,8 @@ function renderAdminStats(data){
 }
 
 function saveResult(key){
-  if(!BIN_ID) return;
-  fetch(`${API_BASE}/${BIN_ID}/latest`,{headers:{'X-Master-Key':API_KEY}})
-    .then(r=>r.json()).then(d=>{
-      const rec = d.record||{};
-      rec[key] = (rec[key]||0)+1;
-      return fetch(`${API_BASE}/${BIN_ID}`,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':API_KEY},body:JSON.stringify(rec)});
-    }).catch(()=>{});
+  if(!GAS_URL) return;
+  fetch(GAS_URL+'?type='+key).catch(()=>{});
 }
 
 window.addEventListener('load', checkAdmin);
