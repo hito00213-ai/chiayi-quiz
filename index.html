@@ -247,13 +247,13 @@ const questions = [
   },
   {
     id:'Q6', dim:'JP',
-    scene:'派對中場',
-    text:'辦桌進行到一半，你發現還有很多攤位沒逛，但時間有限，你會怎麼安排？',
+    scene:'入座後拿到節目單',
+    text:'入座後，服務人員發給你一張今晚的活動節目單，上面列了所有攤位和時間，你會？',
     options:[
-      {text:'拿出手機，把剩下想去的攤位全部列清單排順序', score:{J:1}},
-      {text:'先確認還有幾個攤是一定要去的，其他隨緣', score:{J:1}},
-      {text:'想到哪就去哪，反正跟著感覺走', score:{P:1}},
-      {text:'跟旁邊的人聊聊，看他們推薦哪個再決定', score:{P:1}},
+      {text:'認真研究節目單，把想去的攤位按時間標起來', score:{J:1}},
+      {text:'掃一眼有哪些攤，心裡大概有個底就收起來', score:{J:1}},
+      {text:'看了一下感覺太多資訊，直接放桌上不管', score:{P:1}},
+      {text:'根本沒在看，跟著現場氛圍走就對了', score:{P:1}},
     ]
   },
   {
@@ -556,7 +556,6 @@ function showSplash(){
 
 // ── Admin ──
 const ADMIN_PW = 'ccc2026';
-// ← 把你的 Google Apps Script Web App URL 貼在這裡
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbwTK5L5AW6emVwVA-LJkg4B5kJQ5sTzinEs7v7mdai46jaPP1i19ArWIV4VQB5ul2USOg/exec';
 
 function checkAdmin(){
